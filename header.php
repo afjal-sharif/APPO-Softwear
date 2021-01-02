@@ -59,7 +59,7 @@ div#copyright a:hover { color:#851300; }
 <?php
     if(date("Y-m-d")>'2023-12-31')
     {
-     echo "<td colspan='2'>Software Licence is Expired, Pls contact with Service Provider.  </td>";
+     echo "<td colspan='2'>Software Licence is Expired, Pls contact with Service Provider.</td>";
      exit;
     }
     else
