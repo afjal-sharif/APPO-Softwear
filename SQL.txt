@@ -1,0 +1,24 @@
+// Company Stat
+
+select 'purchase' as ttype,1 as porder,tbl_order.dtDate as dt,
+       tbl_order.company as company,
+       tbl_order.donumber as refno,
+       tbl_order.truckno as media,
+       tbl_order.remarks as remarks,
+       sum(tbl_receive.qty) as rec, 
+       sum(tbl_receive.rate * tbl_receive.qty) as svalue   ,0 as pvalue
+       from tbl_order
+       join tbl_receive on tbl_receive.donumber=tbl_order.donumber
+       group by tbl_order.donumber
+union all
+SELECT 'payment' as ttype,2 as porder, `paydate` as dt,`companyid` as company,`chequeno` as refno,`bank` as media,`remarks` as remarks ,`amount` as rec ,0 as svalue,`bamount`+`discount` as pvalue FROM `tbl_com_payment`
+where status<>'W'
+
+
+
+// Customer Stat
+
+SELECT  2 as porder,'Payment' as ttype,`customerid` as custid,`mrno` as refno,`date` as dt,`paytype` as paytype, 0 as qty,`hcash`+`discount` as cash ,`cash` as bank,`amount` as athand,`chequeno` as cheqno, remarks as remarks, cstatus as status,0 as salesvalue FROM `tbl_dir_receive` where cstatus<>'W'
+union all
+SELECT  1 as porder,'Sales' as ttype,`customerid` as custid,`invoice` as refno,`date` as dt,'Sales' as paytype,sum(`qty`) as qty, 0 as cash,0 as bank,0 as athand,'-' as cheqno,'-' as remarks,'-' as status, sum(((`rate`+`df`+`loadcost`)*qty)+adjamount) as salesvalue FROM `tbl_sales`
+group by customerid,invoice

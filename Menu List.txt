@@ -1,0 +1,93 @@
+100 >> Today 
+	101>Day Summary
+	102>Day details
+	103>Cash & Bank 
+	104>Notes Entry
+	105>View Notes
+
+200 >>	Purchase
+	201>Goods Purchase
+	202>Recieve Goods
+	203>Order Blance
+	204>Supplier List
+	205>Purchase Order
+	206>Purchase Details
+300 >> Sales
+	301>Goods Sales
+	302>Print Invoice
+	303>Print Challan
+	304>Print MR
+	305>Stock Balance
+	306>New Customer
+	307>Sales Report
+	308 > DO Sales
+	
+400 >>Accounts
+	401>Payable
+		402>Payment to Supplier
+		403>Payment Banl Clear
+		404>Supplier Statments
+		405>Supplier Balance
+		406>Payment Details
+	411>Receiveable
+		412>Receive From Customer
+		413>Receive Bank Clear
+		414>Customer 2 Supplier
+		415>Customer Statements
+		416>Customer Balance
+		417>Receive Details
+	421>Expense
+		422>Expense Entry
+		423>Expense Report
+	431>Cash & Bank
+		432>Cash To Bank
+		433>Bank to Cash
+		434>Bank to Bank
+		435>Bank Details
+		436>Cash Details
+	441>adjustement
+		442>Stock Increase
+		443>Stock Decrease
+		444>Supplier Adjustment
+		445>Customer Adjustment
+	451>Others Income
+
+	452>others Assets
+
+	461>Landing & Borrowing
+		462>Receive
+		463>Payment
+		464>Statements
+		465>Balance Report
+	471> Incentive
+		472> Incentive Receive
+		473> Incentive Report
+
+500>Report
+	501>Others Income
+	502>Product Wise Profit
+	503>Income Statements
+	504>Balance Sheet
+	505>Old Balance Sheet
+	506>Profit Statements
+	507>Fixed Assets
+
+600>Administratation
+	601>Date Setup
+	602>Supplier Setup
+	603>Product Category
+	604>Product Setup
+	605>New SP
+	606>New Area
+	607>New Customer
+	608>New LB Person
+	609>Bank Account
+	610>Expense Head
+	611>Expense Sub Head
+	612>Others Income Head
+	613>Others Assets
+	614>Change Password
+	615>New User
+	616>User Access Control
+
+	

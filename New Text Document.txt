@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS `tbl_retailer_target` (
+  `id` int(11) NOT NULL auto_increment,
+  `year` int(2) NOT NULL,
+  `customer` int(2) NOT NULL,
+  `month` int(2) NOT NULL,
+  `target` double(8,2) NOT NULL,
+  `actual` double(8,2) NOT NULL,
+  `user` varchar(15) NOT NULL,
+  `dateandtime` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `year` (`year`,`customer`,`month`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+// Old before Secondary Customer.
+
+DROP VIEW IF EXISTS `apollow`.`view_cust_stat_base`;
+CREATE OR REPLACE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_cust_stat_base`
+AS select 2 AS `porder`,_utf8'Payment' AS `ttype`,`tbl_dir_receive`.`customerid` AS `custid`,`tbl_dir_receive`.`mrno` AS `refno`,`tbl_dir_receive`.`date` AS `dt`,`tbl_dir_receive`.`paytype` AS `paytype`,0 AS `qty`,(`tbl_dir_receive`.`hcash` + `tbl_dir_receive`.`discount`) AS `cash`,`tbl_dir_receive`.`cash` AS `bank`,`tbl_dir_receive`.`amount` AS `athand`,`tbl_dir_receive`.`chequeno` AS `cheqno`,`tbl_dir_receive`.`remarks` AS `remarks`,`tbl_dir_receive`.`cstatus` AS `status`,0 AS `salesvalue` from `tbl_dir_receive` where (`tbl_dir_receive`.`cstatus` <> _latin1'W') union all
+select 1 AS `porder`,_utf8'Sales' AS `ttype`,`tbl_sales`.`customerid` AS `custid`,`tbl_sales`.`invoice` AS `refno`,`tbl_sales`.`date` AS `dt`,_utf8'Sales' AS `paytype`,sum(`tbl_sales`.`qty`) AS `qty`,0 AS `cash`,0 AS `bank`,0 AS `athand`,_utf8'-' AS `cheqno`,_utf8'-' AS `remarks`,_utf8'-' AS `status`,sum(((((`tbl_sales`.`rate` + `tbl_sales`.`df`) + `tbl_sales`.`loadcost`) * `tbl_sales`.`qty`) + `tbl_sales`.`adjamount`)) AS `salesvalue` from `tbl_sales` group by `tbl_sales`.`customerid`,`tbl_sales`.`invoice`;

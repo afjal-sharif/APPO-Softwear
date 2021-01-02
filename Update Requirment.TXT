@@ -1,0 +1,11 @@
+1. Slow Working
+
+2. Cash Customer : Bank Receive Option. - Done
+
+3. Secondary Customer Tag.  - Done.
+
+4. Delete Payment Option - Done.
+
+5. Incentive Payment Option - Done @ 3 Aug
+
+6. DO Sales Option - Done. @ 3 Aug
