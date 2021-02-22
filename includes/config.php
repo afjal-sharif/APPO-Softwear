@@ -13,12 +13,12 @@ $global['owner'] = 'Md. Abdullah';
 
 
 $global['site_base_url'] = 'http://localhost/SMS/'; 
-$global['base_path'] = 'D:/xampp/htdocs/SMS/includes/';
+$global['base_path'] = 'APPO-Softwear/includes/';
 
-$global['host']="localhost";
-$global['dbname'] = "apollow";
-$global['dbuser'] = "root";
-$global['dbpasswd'] = "";
+$global['host']="sql100.epizy.com";
+$global['dbname'] = "epiz_27991507_appollow";
+$global['dbuser'] = "epiz_27991507";
+$global['dbpasswd'] = "78789898af@";
 
 $global['company'] = "2";
 $global['exp_carring'] = "51";
